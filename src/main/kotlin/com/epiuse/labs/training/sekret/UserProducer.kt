@@ -9,20 +9,15 @@ import org.springframework.messaging.MessageHeaders.CONTENT_TYPE
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.util.MimeTypeUtils.APPLICATION_JSON
 
+import com.github.javafaker.*
+
 import com.epiuse.labs.training.sekret.binding.MyProducer
 
-@EnableBinding(MyProducer::class)
 class UserProducer {
 
-    @InboundChannelAdapter(channel = MyProducer.OUTPUT, poller = [Poller(fixedRate = "1000")])
-    fun generate(): Message<*>? {
-        val value = User(++x, "James", "Brown", "jbrown@labs.co.za")
-        println("Sending: $value")
-        return MessageBuilder.withPayload(value)
-                .setHeader(CONTENT_TYPE, APPLICATION_JSON)
-                .setHeader("partitionKey", value)
-                .build()
-    }
+    private val faker = Faker()
+
+    //TODO: implement producer to push a random user every 2 seconds to the production topic
 
     companion object {
 
