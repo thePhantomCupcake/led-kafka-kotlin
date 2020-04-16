@@ -2,7 +2,7 @@ package com.epiuse.labs.training.sekret
 
 import com.epiuse.labs.training.sekret.binding.MyProducer
 import com.epiuse.labs.training.sekret.model.User
-import com.github.javafaker.*
+import com.github.javafaker.Faker
 import org.springframework.cloud.stream.annotation.EnableBinding
 import org.springframework.integration.annotation.InboundChannelAdapter
 import org.springframework.integration.annotation.Poller
@@ -16,7 +16,7 @@ class UserProducer {
 
     private val faker = Faker()
 
-    @InboundChannelAdapter(channel = MyProducer.OUTPUT, poller = [Poller(fixedRate = "1000")])
+    @InboundChannelAdapter(channel = MyProducer.OUTPUT, poller = [Poller(fixedRate = "100")])
     fun generate(): Message<*>? {
         val firstName = faker.name().firstName()
         val lastName = faker.name().lastName()

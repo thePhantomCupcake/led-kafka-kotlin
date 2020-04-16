@@ -10,5 +10,14 @@ spring:
           destination: production
         my-processor-in:
           destination: production
+          group: 0
         my-processor-out:
           destination: anonymous
+        my-other-processor-in:
+          destination: production
+          group: 0
+        my-other-processor-out:
+          destination: anonymous
+      kafka:
+        binder:
+          min-partition-count: 2
