@@ -2,5 +2,13 @@ spring:
   cloud:
     stream:
       bindings:
+        input:
+          destination: anonymous
+          consumer:
+            valueSerde: com.epiuse.labs.training.sekret.model.serde.UserSerde
         my-producer-out:
           destination: production
+        my-processor-in:
+          destination: production
+        my-processor-out:
+          destination: anonymous
