@@ -8,6 +8,7 @@ import org.springframework.messaging.Message
 import org.springframework.messaging.MessageHeaders.CONTENT_TYPE
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.util.MimeTypeUtils.APPLICATION_JSON
+import com.epiuse.labs.training.sekret.binding.MyProducer
 
 @EnableBinding(MyProducer::class)
 class UserProducer {
