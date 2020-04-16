@@ -8,9 +8,3 @@ spring:
             valueSerde: com.epiuse.labs.training.sekret.model.serde.UserSerde
         my-producer-out:
           destination: production
-        consume-in-0:
-          destination: anonymous
-        my-processor-in:
-          destination: production
-        my-processor-out:
-          destination: anonymous

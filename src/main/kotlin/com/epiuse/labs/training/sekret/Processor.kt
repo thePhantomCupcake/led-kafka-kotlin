@@ -9,17 +9,9 @@ import org.springframework.cloud.stream.annotation.StreamListener
 import org.springframework.cloud.stream.messaging.Processor
 import org.springframework.messaging.handler.annotation.SendTo
 
-@EnableBinding(MyProcessor::class)
-class Processor @Autowired constructor(
-        val userAnonymizerService: UserAnonymizerService
-) {
+class Processor {
 
-    @StreamListener(MyProcessor.INPUT)
-    @SendTo(MyProcessor.OUTPUT)
-    fun process(value: User): User {
-        LOGGER.info("Processing user: $value")
-        return userAnonymizerService.process(value)
-    }
+    // TODO: implement processor to anonymize incoming users and publish to "anonymous" topic
 
     companion object {
         val LOGGER = LoggerFactory.getLogger(Processor::class.java)
