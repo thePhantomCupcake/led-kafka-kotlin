@@ -9,7 +9,6 @@ import org.springframework.messaging.MessageHeaders.CONTENT_TYPE
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.util.MimeTypeUtils.APPLICATION_JSON
 
-
 @EnableBinding(MyProducer::class)
 class UserProducer {
 

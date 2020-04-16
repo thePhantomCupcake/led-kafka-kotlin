@@ -7,13 +7,9 @@ import org.springframework.cloud.stream.annotation.EnableBinding
 import org.springframework.cloud.stream.annotation.StreamListener
 import org.springframework.cloud.stream.messaging.Sink
 
-@EnableBinding(Sink::class)
 class AnonymizedConsumer {
 
-    @StreamListener(Sink.INPUT)
-    fun consume(value: User) {
-        LOGGER.info("Successfully anonymized user with result: $value")
-    }
+    //TODO: implement consumer using default Sink binding to read from "anonymous" topic
 
     companion object {
         val LOGGER = LoggerFactory.getLogger(AnonymizedConsumer::class.java)
