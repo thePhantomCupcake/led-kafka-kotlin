@@ -1,4 +1,8 @@
-target
-.settings
-.classpath
-.project
+*.iml
+/.vscode/
+/target/
+/.idea/
+/.settings/
+/.classpath
+/.project
+/sekret.iml
