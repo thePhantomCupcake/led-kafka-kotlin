@@ -3,12 +3,21 @@ spring:
     stream:
       bindings:
         input:
-          destination: anonymous
+          destination: final
           consumer:
             valueSerde: com.epiuse.labs.training.sekret.model.serde.UserSerde
         my-producer-out:
           destination: production
         my-processor-in:
           destination: production
+          group: 0
         my-processor-out:
           destination: anonymous
+        my-other-processor-in:
+          destination: anonymous
+          group: 0
+        my-other-processor-out:
+          destination: final
+
+server:
+  port: 8089

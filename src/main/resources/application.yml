@@ -3,7 +3,7 @@ spring:
     stream:
       bindings:
         input:
-          destination: anonymous
+          destination: final
           consumer:
             valueSerde: com.epiuse.labs.training.sekret.model.serde.UserSerde
         my-producer-out:
@@ -14,10 +14,10 @@ spring:
         my-processor-out:
           destination: anonymous
         my-other-processor-in:
-          destination: production
+          destination: anonymous
           group: 0
         my-other-processor-out:
-          destination: anonymous
-      kafka:
-        binder:
-          min-partition-count: 2
+          destination: final
+
+server:
+  port: 8089

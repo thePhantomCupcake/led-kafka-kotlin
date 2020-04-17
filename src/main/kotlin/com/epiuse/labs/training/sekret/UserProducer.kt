@@ -16,7 +16,7 @@ class UserProducer {
 
     private val faker = Faker()
 
-    @InboundChannelAdapter(channel = MyProducer.OUTPUT, poller = [Poller(fixedRate = "100")])
+    @InboundChannelAdapter(channel = MyProducer.OUTPUT, poller = [Poller(fixedRate = "5000")])
     fun generate(): Message<*>? {
         val firstName = faker.name().firstName()
         val lastName = faker.name().lastName()
